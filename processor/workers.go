@@ -187,7 +187,7 @@ func docStringState(fileJob *FileJob, index int, endPoint int, stringTrie *Trie,
 		}
 
 		if fileJob.Content[i-1] != '\\' {
-			if ok, _, _ := stringTrie.Match(fileJob.Content[i:]); ok != 0 {
+			if bytes.HasPrefix(fileJob.Content[i:], endString) {
 				// So we have hit end of docstring at this point in which case check if only whitespace characters till the next
 				// newline and if so we change to a comment otherwise to code
 				// need to start the loop after ending definition of docstring, therefore adding the length of the string to
