@@ -4,8 +4,6 @@ github.com/arbovm/levenshtein v0.0.0-20160628152529-48b4e1c0c4d0 h1:jfIu9sQUG6Ig
 github.com/arbovm/levenshtein v0.0.0-20160628152529-48b4e1c0c4d0/go.mod h1:t2tdKJDJF9BV14lnkjHmOQgcvEKgtqs5a1N3LNdJhGE=
 github.com/bahlo/generic-list-go v0.2.0 h1:5sz/EEAK+ls5wF+NeqDpk5+iNdMDXrh3z3nPnH1Wvgk=
 github.com/bahlo/generic-list-go v0.2.0/go.mod h1:2KvAjgMlE5NNynlg/5iLrrCCZ2+5xWbdbCW3pNTGyYg=
-github.com/boyter/gocodewalker v1.5.2-0.20260227212453-19676720409f h1:B+n/SMEvi0E2ulKmXMBZoOcGhTXmhKHxhIRPs1yrxkQ=
-github.com/boyter/gocodewalker v1.5.2-0.20260227212453-19676720409f/go.mod h1:9k+yM6+fIx61F0xI9ChXEGE5DYoLhggw8AxSOtW+kKo=
 github.com/boyter/simplecache v0.0.0-20250113230110-8a4c9201822a h1:eL28tNqB4nBuMVA+WijpviMStOY7NAFWDowPB6I6Ruo=
 github.com/boyter/simplecache v0.0.0-20250113230110-8a4c9201822a/go.mod h1:8yw7v2b4T5LJbZEBhPOqUsqe8h04anlyPhmWnoUtRIs=
 github.com/buger/jsonparser v1.1.1 h1:2PnMjfWD7wBILjqQbt530v576A/cAbQvEW9gGIpYMUs=
@@ -40,6 +38,8 @@ github.com/kr/pretty v0.3.1 h1:flRD4NNwYAUpkphVc1HcthR4KEIFJ65n8Mw5qdRn3LE=
 github.com/kr/pretty v0.3.1/go.mod h1:hoEshYVHaxMs3cyo3Yncou5ZscifuDolrwPKZanG3xk=
 github.com/kr/text v0.2.0 h1:5Nx0Ya0ZqY2ygV366QzturHI13Jq95ApcVaJBhpS+AY=
 github.com/kr/text v0.2.0/go.mod h1:eLer722TekiGuMkidMxC/pM04lWEeraHUUmBw8l2grE=
+github.com/m39johnsonm/gocodewalker v0.0.0-20260416192438-817ae1bbea55 h1:LD3qlp+H6CuMCciZK2c5KTl+6cfNUw9vXKb/14ufYi8=
+github.com/m39johnsonm/gocodewalker v0.0.0-20260416192438-817ae1bbea55/go.mod h1:9k+yM6+fIx61F0xI9ChXEGE5DYoLhggw8AxSOtW+kKo=
 github.com/mailru/easyjson v0.7.7 h1:UGYAvKxe3sBsEDzO8ZeWOSlIQfWFlxbzLZe7hwFURr0=
 github.com/mailru/easyjson v0.7.7/go.mod h1:xzfreul335JAWq5oZzymOObrkdz5UnU4kGfJJLY9Nlc=
 github.com/mark3labs/mcp-go v0.45.0 h1:s0S8qR/9fWaQ3pHxz7pm1uQ0DrswoSnRIxKIjbiQtkc=

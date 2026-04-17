@@ -40,4 +40,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/boyter/gocodewalker => github.com/m39johnsonm/gocodewalker master
+replace github.com/boyter/gocodewalker => github.com/m39johnsonm/gocodewalker v0.0.0-20260416192438-817ae1bbea55

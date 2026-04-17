@@ -4,7 +4,7 @@ github.com/agnivade/levenshtein
 # github.com/bahlo/generic-list-go v0.2.0
 ## explicit; go 1.18
 github.com/bahlo/generic-list-go
-# github.com/boyter/gocodewalker v1.5.2-0.20260227212453-19676720409f
+# github.com/boyter/gocodewalker v1.5.2-0.20260227212453-19676720409f => github.com/m39johnsonm/gocodewalker v0.0.0-20260416192438-817ae1bbea55
 ## explicit; go 1.23.0
 github.com/boyter/gocodewalker
 github.com/boyter/gocodewalker/go-gitignore
@@ -108,3 +108,4 @@ golang.org/x/text/message/catalog
 # gopkg.in/yaml.v3 v3.0.1
 ## explicit
 gopkg.in/yaml.v3
+# github.com/boyter/gocodewalker => github.com/m39johnsonm/gocodewalker v0.0.0-20260416192438-817ae1bbea55
