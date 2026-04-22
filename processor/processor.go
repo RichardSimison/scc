@@ -435,7 +435,7 @@ func LoadLanguageFeature(loadName string) {
 		return
 	}
 
-	// Check if already loaded and if so return because we don't need to do it again
+	// Check if already loaded and if so, return because we don't need to do it again
 	LanguageFeaturesMutex.Lock()
 	_, ok := LanguageFeatures[loadName]
 	LanguageFeaturesMutex.Unlock()
