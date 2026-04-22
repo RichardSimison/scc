@@ -96,7 +96,6 @@ func main() {
 			processor.Process()
 		},
 	}
-
 	flags := rootCmd.PersistentFlags()
 
 	flags.BoolVarP(
@@ -105,6 +104,12 @@ func main() {
 		"m",
 		false,
 		"calculate max and mean characters per line",
+	)
+	flags.BoolVar(
+		&processor.CountUnknown,
+		"count-unknown",
+		false,
+		"set to allow files with unknown extensions to be counted",
 	)
 	flags.BoolVarP(
 		&processor.Percent,

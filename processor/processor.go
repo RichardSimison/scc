@@ -107,6 +107,9 @@ var SccIgnore = false
 // CountIgnore should we count ignore files?
 var CountIgnore = false
 
+// CountUnkown should we count unknown files?
+var CountUnknown = false
+
 // DisableCheckBinary toggles checking for binary files using NUL bytes
 var DisableCheckBinary = false
 

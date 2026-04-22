@@ -226,6 +226,13 @@ func DetermineLanguage(filename string, fallbackLanguage string, possibleLanguag
 	if len(toSort) != 0 {
 		return toSort[0].Name
 	}
+	if fallbackLanguage == "" && isText(content) {
+		return "unknown"
+	}
 
 	return fallbackLanguage
+}
+
+func isText(data []byte) bool {
+	return strings.Contains(string(data), "\n")
 }

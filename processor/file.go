@@ -162,6 +162,16 @@ func newFileJob(path, name string, fileInfo os.FileInfo) *FileJob {
 			Bytes:             fileInfo.Size(),
 		}
 	} else {
+		if CountUnknown {
+			return &FileJob{
+				Location:          path,
+				Symlocation:       symPath,
+				Filename:          name,
+				Extension:         extension,
+				PossibleLanguages: []string{"Unknown"},
+				Bytes:             fileInfo.Size(),
+			}
+		}
 		printWarnF("skipping file unknown extension: %s", name)
 	}
 
