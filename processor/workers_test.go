@@ -4,6 +4,7 @@ package processor
 
 import (
 	"bytes"
+	"os"
 	"reflect"
 	"strings"
 	"testing"
@@ -2030,4 +2031,65 @@ func BenchmarkUnknownRemapLanguage(b *testing.B) {
 			_ = ctx.unknownRemapLanguage(job)
 		}
 	})
+}
+
+func TestCountUnknownUnsupportedExtensions(t *testing.T) {
+	ProcessConstants()
+	CountUnknown = true
+	defer func() { CountUnknown = false }()
+
+	// Create temp files with made-up extensions
+	type testFile struct {
+		name    string
+		content string
+	}
+
+	files := []testFile{
+		{"test.richie", "line one\nline two\nline three\n"},
+		{"test.vraj", "alpha\nbeta\ngamma\ndelta\n"},
+		{"test.michel", "Line eight \n"},
+	}
+
+	// Write temp files so fileProcessorWorker can read them
+	for _, f := range files {
+		err := os.WriteFile(f.name, []byte(f.content), 0600)
+		if err != nil {
+			t.Fatalf("failed to create temp file %s: %v", f.name, err)
+		}
+		defer os.Remove(f.name)
+	}
+
+	inputChan := make(chan *FileJob, 100)
+	outputChan := make(chan *FileJob, 100)
+
+	for _, f := range files {
+		info, err := os.Lstat(f.name)
+		if err != nil {
+			t.Fatalf("failed to stat temp file %s: %v", f.name, err)
+		}
+		inputChan <- newFileJob(f.name, f.name, info)
+	}
+	close(inputChan)
+
+	ctx := processorContext{remap: newRemapConfig("", "")}
+	ctx.fileProcessorWorker(inputChan, outputChan)
+
+	// Collect results
+	unknownCount := 0
+	totalLines := int64(0)
+	for res := range outputChan {
+		if res.Language == "Unknown" {
+			unknownCount++
+			totalLines += res.Lines
+		}
+	}
+
+	if unknownCount != 3 {
+		t.Errorf("expected 3 files under 'Unknown', got %d", unknownCount)
+	}
+
+	// .richie = 3 lines, .vraj = 4 lines, .michel = 1 line. Total lines 8
+	if totalLines != 8 {
+		t.Errorf("expected 8 total lines across Unknown files, got %d", totalLines)
+	}
 }
