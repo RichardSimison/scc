@@ -320,3 +320,26 @@ func TestNewFileJobDuplicateCounting(t *testing.T) {
 		t.Error("Expected nil for duplicate file through symlink, but got a FileJob")
 	}
 }
+
+func TestNewFileJobKnownExtensionNotCountedAsUnknown(t *testing.T) {
+	ProcessConstants()
+	CountUnknown = true
+	defer func() { CountUnknown = false }()
+
+	fi, _ := os.Stat("../examples/issue114/makefile")
+	job := newFileJob("../examples/issue114/makefile", "makefile", fi)
+
+	if job == nil {
+		t.Fatal("Expected file job to be created for known file")
+	}
+
+	for _, lang := range job.PossibleLanguages {
+		if lang == "Unknown" {
+			t.Error("Known file was incorrectly categorized as Unknown, got", job.PossibleLanguages)
+		}
+	}
+
+	if job.PossibleLanguages[0] != "Makefile" {
+		t.Error("Expected Makefile got", job.PossibleLanguages[0])
+	}
+}
